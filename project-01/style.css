@@ -54,7 +54,7 @@ button {
 
 .heading {
   position: absolute;
-  top: calc(50% - 14rem);
+  top: calc(50% - 16rem);
   text-transform: uppercase;
   font-weight: 800;
   font-size: 1.5rem;
@@ -73,10 +73,10 @@ button {
 }
 
 .quotes__container {
-  min-width: 320px;
-  min-height: 320px;
-  max-width: 400px;
-  max-height: 440px;
+  min-width: 360px;
+  min-height: 360px;
+  max-width: 440px;
+  max-height: 520px;
   background-color: #fcfcfc;
   display: flex;
   flex-direction: column;
@@ -86,7 +86,7 @@ button {
   box-shadow: 0px 5px 20px rgba(0, 0, 0, 0.4);
 }
 
-.quote {
+.quote__box {
   height: 100%;
   display: flex;
   flex-direction: column;
@@ -97,15 +97,23 @@ button {
 .quotes__icon__small {
   font-size: 13rem;
   position: absolute;
-  color: rgb(206, 231, 248);
+  color: rgb(217, 237, 250);
   z-index: 1;
 }
 
-.quote p {
+.quote {
   z-index: 2;
   font-size: 1.75rem;
   font-weight: 500;
   font-family: "Playfair Display", serif;
+}
+
+.quote__small {
+  font-size: 1.5rem;
+}
+
+.quote__very__small {
+  font-size: 1rem;
 }
 
 .author {
@@ -113,6 +121,7 @@ button {
   text-transform: uppercase;
   font-weight: 600;
   letter-spacing: 4px;
+  margin-top: 0.75rem;
 }
 
 .buttons__container {
