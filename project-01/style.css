@@ -184,3 +184,35 @@ button {
   color: #111;
   font-weight: 600;
 }
+
+/* responsiveness for very small devices */
+@media screen and (max-width: 390px) {
+  html,
+  body {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+
+  .quotes__container {
+    min-width: 300px;
+    min-height: 320px;
+  }
+
+  .quote {
+    font-size: 1.5rem;
+  }
+
+  .quote__small {
+    font-size: 0.9rem;
+  }
+
+  .quote__very__small {
+    font-size: 0.8rem;
+  }
+
+  .author {
+    font-size: 0.7rem;
+    width: 80%;
+  }
+}
