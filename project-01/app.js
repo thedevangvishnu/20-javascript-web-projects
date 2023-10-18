@@ -1,4 +1,3 @@
-// select necessary elements
 const quotesContainer = document.getElementById("quotes-container"),
   nextBtn = document.getElementById("next-btn"),
   twitterBtn = document.getElementById("twitter-btn"),
@@ -9,21 +8,19 @@ const quotesContainer = document.getElementById("quotes-container"),
 // global quotes array
 let apiQuotes = [];
 
-// loading function shows loader
-const loading = () => {
+const showLoadingSpinner = () => {
   loader.hidden = false;
   quotesContainer.hidden = true;
 };
 
-// complete function hides loader
-const complete = () => {
+const removeloadingSpinner = () => {
   quotesContainer.hidden = false;
   loader.hidden = true;
 };
 
 // generate new quote
 const newQuote = () => {
-  loading();
+  showLoadingSpinner();
   const random = Math.floor(Math.random() * apiQuotes.length);
   const quote = apiQuotes[random];
   const { text, author } = quote;
@@ -39,7 +36,7 @@ const newQuote = () => {
     quoteText.classList.remove("quote__small");
     quoteText.classList.remove("quote__very__small");
   }
-  complete();
+  removeloadingSpinner();
 };
 
 // fetch data using api
@@ -56,7 +53,6 @@ const getQuotes = async () => {
 };
 
 getQuotes();
-// loading();
 
 // tweet quote
 const tweetQuote = () => {
