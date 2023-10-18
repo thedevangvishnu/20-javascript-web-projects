@@ -41,7 +41,7 @@ const newQuote = () => {
 
 // fetch data using api
 const getQuotes = async () => {
-  loading();
+  showLoadingSpinner();
   const apiUrl = "https://jacintodesign.github.io/quotes-api/data/quotes.json";
 
   try {
