@@ -60,7 +60,7 @@ li {
   font-weight: 600;
 }
 
-/* responsiveness for medium devices */
+/* responsiveness for medium devices and smaller deives */
 
 @media screen and (max-width: 1100px) {
   .container {
