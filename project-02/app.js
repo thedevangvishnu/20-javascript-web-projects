@@ -1,12 +1,24 @@
 const imagesContainer = document.getElementById("images-container");
 
+let readyToLoad = false;
+let imagesLoaded = 0;
+let totalImages = 0;
 let photosList = [];
 
 // set up Unsplash API
-const count = 10;
-const orientation = "squarish";
+const count = 30;
 const apiKey = "nArCar94yh9oho5cd9dSvFQte1TJUYWQ14AubyY2c3M";
-const apiUrl = `https://api.unsplash.com/photos/random/?client_id=${apiKey}&count=${count}&orientation=${orientation}`;
+const apiUrl = `https://api.unsplash.com/photos/random/?client_id=${apiKey}&count=${count}`;
+
+// check if each image was loaded
+const loadImage = () => {
+  console.log("image loaded");
+  imagesLoaded++;
+  if (imagesLoaded === totalImages) {
+    readyToLoad = true;
+    console.log("ready to load again");
+  }
+};
 
 const setAttributes = (element, attributes) => {
   for (const key in attributes) {
@@ -15,30 +27,29 @@ const setAttributes = (element, attributes) => {
 };
 
 const displayPhotos = () => {
+  imagesLoaded = 0;
+  totalImages = photosList.length;
+  console.log(totalImages);
   photosList.forEach((photo) => {
     const { links, urls, alt_description } = photo;
-    // for each photo create a new image element (inside <a> tag) and provide values for its attributes and apend each of them to the imageContainer
+    // for each photo create a new image item element (<a> tag) and provide values for its attributes and apend each of them to the imagesContainer
     const item = document.createElement("a");
-    // item.setAttribute("href", links.html);
     setAttributes(item, {
       href: links.html,
       target: "_blank",
     });
 
     const image = document.createElement("img");
-    // image.setAttribute("src", urls.regular);
-    // image.setAttribute("alt", alt_description);
-    // image.setAttribute("title", alt_description);
     setAttributes(image, {
       src: urls.regular,
       alt: alt_description,
       title: alt_description,
     });
 
-    item.appendChild(image);
+    image.addEventListener("load", loadImage);
 
+    item.appendChild(image);
     imagesContainer.appendChild(item);
-    // console.log("done");
   });
 };
 
@@ -52,5 +63,16 @@ const getPhotos = async () => {
     console.log("Error fetching images from API");
   }
 };
+
+// infinite scroll when reaching the bottom of the window
+window.addEventListener("scroll", () => {
+  if (
+    window.innerHeight + window.scrollY >= document.body.offsetHeight - 1000 &&
+    readyToLoad
+  ) {
+    ready = false;
+    getPhotos();
+  }
+});
 
 getPhotos();
