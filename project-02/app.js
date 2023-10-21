@@ -13,12 +13,10 @@ const apiUrl = `https://api.unsplash.com/photos/random/?client_id=${apiKey}&coun
 
 // check if each image was loaded
 const loadImage = () => {
-  console.log("image loaded");
   imagesLoaded++;
   if (imagesLoaded === totalImages) {
     readyToLoad = true;
     loader.hidden = true;
-    console.log("ready to load again");
   }
 };
 
@@ -31,7 +29,6 @@ const setAttributes = (element, attributes) => {
 const displayPhotos = () => {
   imagesLoaded = 0;
   totalImages = photosList.length;
-  console.log(totalImages);
   photosList.forEach((photo) => {
     const { links, urls, alt_description } = photo;
     // for each photo create a new image item element (<a> tag) and provide values for its attributes and apend each of them to the imagesContainer
@@ -60,7 +57,6 @@ const getPhotos = async () => {
     const response = await fetch(apiUrl);
     photosList = await response.json();
     displayPhotos();
-    console.log(photosList);
   } catch (error) {
     console.log("Error fetching images from API");
   }
