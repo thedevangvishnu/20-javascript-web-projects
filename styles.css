@@ -1,5 +1,245 @@
+/* google fonts */
+
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700&display=swap");
+
+:root {
+  --main-font: "Poppins", sans-serif;
+}
+
 * {
-  margin: 0;
   padding: 0;
+  margin: 0;
   box-sizing: border-box;
+}
+
+html,
+body {
+  font-family: var(--main-font);
+  width: 100%;
+  height: 100%;
+  color: #eee;
+  scroll-behavior: smooth;
+}
+
+a {
+  text-decoration: none;
+  color: #ddd;
+}
+
+li {
+  list-style: none;
+}
+
+/* .................. */
+
+.container {
+  max-width: 1300px;
+  margin-inline: auto;
+  padding-inline: 2rem;
+}
+
+.hero__main {
+  width: 100%;
+  height: 100vh;
+  background-color: #111;
+}
+
+/* nav */
+
+nav {
+  height: 10%;
+  background-color: #111;
+}
+
+nav .container {
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  /* background-color: #888; */
+}
+
+.nav__logo {
+  font-size: 1.5rem;
+  color: #ddd;
+  transition: all 0.3s;
+}
+
+.nav__logo:hover {
+  color: #fff;
+}
+
+.nav__content {
+  height: 100%;
+  /* background-color: #999; */
+  display: flex;
+  column-gap: 2rem;
+  align-items: center;
+}
+
+.nav__content li a {
+  color: #ddd;
+  transition: all 0.3s;
+  text-transform: uppercase;
+}
+
+.nav__content li a:hover {
+  color: #fff;
+}
+
+.nav__project {
+  font-size: 0.9rem;
+  font-weight: 600;
+}
+
+.social {
+  font-size: 1.5rem;
+}
+
+/* hero section */
+
+.hero__section {
+  height: 90%;
+}
+
+.hero__section .container {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  /* background-color: #999; */
+}
+
+.project__title {
+  text-align: center;
+  font-size: 6rem;
+  font-weight: 600;
+}
+
+.project__title span {
+  color: rgb(248, 248, 73);
+}
+
+.project__description {
+  font-size: 1.15rem;
+  font-weight: 300;
+  text-align: center;
+  max-width: 65%;
+}
+
+.ztm {
+  font-weight: 600;
+}
+
+.view__projects {
+  position: absolute;
+  display: flex;
+  align-items: center;
+  column-gap: 0.25rem;
+  /* background-color: gray; */
+  top: calc(50% + 12rem);
+}
+
+.view__projects p {
+  font-size: 0.85rem;
+  text-transform: uppercase;
+  font-weight: 500;
+  text-align: center;
+}
+
+.view__projects i {
+  font-size: 1.25rem;
+}
+
+/* projects section */
+
+.projects__section {
+  height: 100%;
+  background-color: #ddd;
+  display: grid;
+  place-items: center;
+  padding-block: 1.5rem 5rem;
+}
+
+.projects__section h2 {
+  font-size: 4rem;
+  color: #222;
+  font-weight: 600;
+}
+
+.all__projects {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6rem;
+  margin-top: 1rem;
+}
+
+.project__item {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 500px;
+  height: 100%;
+  padding: 1rem;
+  background-color: #fff;
+  box-shadow: 4px 4px 24px rgba(0, 0, 0, 0.2);
+  transition: all 0.3s;
+  padding-bottom: 1rem;
+}
+
+.project__item:hover {
+  transform: scale(1.02);
+  box-shadow: 4px 4px 24px rgba(0, 0, 0, 0.3);
+}
+
+.project__item a {
+  color: #222;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.number {
+  position: absolute;
+  top: 0;
+  left: 0;
+  background-color: #222;
+  width: 60px;
+  height: 60px;
+  display: grid;
+  place-items: center;
+}
+
+.number h2 {
+  position: absolute;
+  top: -0.5rem;
+  color: #fcfcff;
+  font-size: 1rem;
+  /* background-color: red; */
+}
+
+.project__item h2 {
+  text-align: center;
+  font-size: 2.25rem;
+  margin-top: 0.75rem;
+}
+
+.project__item img {
+  width: 300px;
+  height: 300px;
+}
+
+.project__item .source__code {
+  font-weight: 500;
+  color: #777;
+  transition: all 0.3s;
+}
+
+.project__item .source__code:hover {
+  color: #222;
 }

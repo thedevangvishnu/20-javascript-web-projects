@@ -4,13 +4,107 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>20 JavaScript Web Projects</title>
+
+    <!-- remix icon cdn -->
+    <link
+      href="https://cdn.jsdelivr.net/npm/remixicon@3.2.0/fonts/remixicon.css"
+      rel="stylesheet"
+    />
+
+    <!-- my css -->
+    <link rel="stylesheet" href="styles.css" />
   </head>
   <body>
-    <div>
-      <h1>20 JavaScript Web Projects</h1>
-      <div class="all__projects">
-        <a href="./project-01/index.html">Project-01: Quoute Generator</a>
-      </div>
-    </div>
+    <main>
+      <section class="hero__main">
+        <nav>
+          <div class="container">
+            <!-- logo -->
+            <h4 class="nav__logo">
+              <a href="https://github.com/thedevangvishnu">DV</a>
+            </h4>
+
+            <!-- nav-content -->
+            <ul class="nav__content">
+              <li>
+                <a href="https://github.com/thedevangvishnu"
+                  ><i class="ri-github-fill social"></i
+                ></a>
+              </li>
+              <li>
+                <a href="https://www.linkedin.com/in/devang-vishnu-6523641b8/"
+                  ><i class="ri-linkedin-box-fill social"></i
+                ></a>
+              </li>
+            </ul>
+          </div>
+        </nav>
+
+        <section class="hero__section">
+          <div class="container">
+            <!-- <div class="clock"></div> -->
+            <h1 class="project__title">20 <span>JavaScript</span> Projects</h1>
+            <p class="project__description">
+              Presenting 20 JavaScript web projects that I made as part of a
+              course from
+              <a href="https://zerotomastery.io/" class="ztm"
+                >Zero to Mastery Academy</a
+              >
+              that I took to learn JavaScript.
+            </p>
+            <a href="#projects-section" class="view__projects">
+              <p>View projects</p>
+              <i class="ri-arrow-down-line"></i>
+            </a>
+          </div>
+        </section>
+      </section>
+
+      <section class="projects__section" id="projects-section">
+        <!-- projects -->
+        <h2>All Projects</h2>
+        <div class="all__projects container">
+          <div class="project__item">
+            <a href="./project-01/index.html" target="_blank">
+              <div class="number">
+                <h2>01</h2>
+              </div>
+              <img
+                src="./cover-images/project-01.png"
+                alt="Project 01 cover image"
+              />
+              <h2>Quote Generator</h2>
+              <p>
+                <a
+                  class="source__code"
+                  href="https://github.com/thedevangvishnu/20-javascript-web-projects/tree/main/project-01"
+                  >Source code</a
+                >
+              </p>
+            </a>
+          </div>
+
+          <div class="project__item">
+            <a href="./project-02/index.html" target="_blank">
+              <div class="number">
+                <h2>02</h2>
+              </div>
+              <img
+                src="./cover-images/project-02.png"
+                alt="Project 02 cover image"
+              />
+              <h2>Unsplash Infinite Scroll</h2>
+              <p>
+                <a
+                  class="source__code"
+                  href="https://github.com/thedevangvishnu/20-javascript-web-projects/tree/main/project-02"
+                  >Source code</a
+                >
+              </p>
+            </a>
+          </div>
+        </div>
+      </section>
+    </main>
   </body>
 </html>
