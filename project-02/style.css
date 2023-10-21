@@ -35,6 +35,23 @@ li {
   /* background-color: red; */
 }
 
+/* loader */
+.loader {
+  position: fixed;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  background-color: rgba(255, 255, 255, 0.8);
+}
+
+.loader img {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
 .images__container {
   display: flex;
   flex-direction: column;

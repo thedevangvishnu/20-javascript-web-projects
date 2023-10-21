@@ -1,4 +1,5 @@
-const imagesContainer = document.getElementById("images-container");
+const imagesContainer = document.getElementById("images-container"),
+  loader = document.getElementById("loader");
 
 let readyToLoad = false;
 let imagesLoaded = 0;
@@ -16,6 +17,7 @@ const loadImage = () => {
   imagesLoaded++;
   if (imagesLoaded === totalImages) {
     readyToLoad = true;
+    loader.hidden = true;
     console.log("ready to load again");
   }
 };
@@ -70,7 +72,7 @@ window.addEventListener("scroll", () => {
     window.innerHeight + window.scrollY >= document.body.offsetHeight - 1000 &&
     readyToLoad
   ) {
-    ready = false;
+    readyToLoad = false;
     getPhotos();
   }
 });
