@@ -243,3 +243,116 @@ nav .container {
 .project__item .source__code:hover {
   color: #222;
 }
+
+/* Responsive adjustments for medium-sized screens */
+@media (max-width: 1024px) {
+  .container {
+    padding-inline: 1rem;
+  }
+  .project__title {
+    font-size: 4rem;
+  }
+  .project__description {
+    max-width: 75%;
+  }
+
+  .projects__section h2 {
+    font-size: 3rem;
+  }
+
+  .number {
+    width: 40px;
+    height: 40px;
+  }
+
+  .project__item {
+    width: 100%;
+    padding: 2rem;
+  }
+
+  .project__item h2 {
+    font-size: 1.25rem;
+  }
+
+  .project__item img {
+    width: 250px;
+    height: 250px;
+  }
+}
+
+/* Responsive adjustments for smaller screens */
+@media (max-width: 768px) {
+  .project__title {
+    font-size: 3rem;
+  }
+  .project__description {
+    max-width: 80%;
+  }
+
+  .projects__section h2 {
+    font-size: 2.25rem;
+  }
+
+  .all__projects {
+    flex-wrap: wrap;
+  }
+
+  .number {
+    width: 50px;
+    height: 50px;
+  }
+
+  .number h2 {
+    font-size: 2rem;
+  }
+
+  .project__item {
+    width: 70%;
+    padding: 1rem;
+  }
+
+  .project__item h2 {
+    font-size: 1.5rem;
+  }
+}
+
+/* Responsive adjustments for extra small screens (e.g., mobile devices) */
+@media (max-width: 480px) {
+  .project__title {
+    font-size: 3rem;
+    line-height: 3.25rem;
+  }
+  .project__description {
+    margin-top: 1rem;
+    font-size: 0.9rem;
+    max-width: 85%;
+  }
+  .project__item {
+    width: 90%;
+  }
+  .all__projects {
+    flex-direction: column;
+    gap: 2rem;
+  }
+  .project__item h2 {
+    font-size: 1.35rem;
+  }
+
+  .project__item img {
+    width: 90%;
+    height: auto;
+  }
+}
+
+/* Additional responsive adjustments for very small screens (e.g., smaller mobile devices) */
+@media (max-width: 320px) {
+  .project__title {
+    font-size: 2rem;
+  }
+  .project__description {
+    max-width: 90%;
+  }
+  .project__item {
+    width: 95%;
+  }
+}
