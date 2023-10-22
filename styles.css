@@ -33,7 +33,7 @@ li {
 /* .................. */
 
 .container {
-  max-width: 1300px;
+  max-width: 1200px;
   margin-inline: auto;
   padding-inline: 2rem;
 }
@@ -113,7 +113,7 @@ nav .container {
 
 .project__title {
   text-align: center;
-  font-size: 6rem;
+  font-size: 5rem;
   font-weight: 600;
 }
 
@@ -170,8 +170,9 @@ nav .container {
 
 .all__projects {
   display: flex;
+  width: 100%;
   align-items: center;
-  justify-content: center;
+  justify-content: space-evenly;
   gap: 6rem;
   margin-top: 1rem;
 }
@@ -182,7 +183,8 @@ nav .container {
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  width: 500px;
+  min-width: 300px;
+  width: 400px;
   height: 100%;
   padding: 1rem;
   background-color: #fff;
@@ -225,7 +227,7 @@ nav .container {
 
 .project__item h2 {
   text-align: center;
-  font-size: 2.25rem;
+  font-size: 1.75rem;
   margin-top: 0.75rem;
 }
 
@@ -256,6 +258,12 @@ nav .container {
     max-width: 75%;
   }
 
+  .all__projects {
+    justify-content: center;
+    padding-inline: 2rem;
+    gap: 4rem;
+  }
+
   .projects__section h2 {
     font-size: 3rem;
   }
@@ -284,6 +292,8 @@ nav .container {
 @media (max-width: 768px) {
   .project__title {
     font-size: 3rem;
+    line-height: 3.25rem;
+    padding-bottom: 1.5rem;
   }
   .project__description {
     max-width: 80%;
