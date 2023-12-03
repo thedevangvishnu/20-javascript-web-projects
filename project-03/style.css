@@ -10,6 +10,11 @@
 
 body {
   font-family: "Poppins", sans-serif;
+  height: 100vh;
+  background-color: #222;
+  display: grid;
+  place-items: center;
+  color: #eee;
 }
 
 a {
@@ -20,10 +25,44 @@ li {
   list-style-type: none;
 }
 
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 1.5rem;
+}
+
+h1 {
+  font-size: 2.5rem;
+  font-weight: 500;
+  margin-top: -2rem;
+}
+
+/* player */
+.player {
+  position: relative;
+  max-width: 60vw;
+  min-width: 500px;
+  display: grid;
+  place-items: center;
+}
+
+.video {
+  width: 100%;
+  height: auto;
+  box-shadow: 0px 0px 40px rgba(0, 0, 0, 0.75);
+}
+
 /* attribution */
 
 .attribution {
   position: absolute;
   bottom: 1rem;
   text-align: center;
+}
+
+.attribution a {
+  font-weight: 600;
+  color: #eee;
 }
