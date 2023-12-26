@@ -195,3 +195,46 @@ i {
   opacity: 1;
   pointer-events: initial;
 }
+
+/* ................................................ */
+
+/* responsivess for smaller screen devices */
+
+@media screen and (max-width: 575px) {
+  .player {
+    max-width: 95vw;
+    min-width: 0;
+  }
+
+  .controlbar__container {
+    min-height: 40px;
+    padding-bottom: 0.35rem;
+  }
+
+  .video__dragbar {
+    max-height: 0.15rem;
+  }
+
+  i {
+    font-size: 1rem;
+  }
+
+  .play__pause__icon {
+    font-size: 1.15rem;
+  }
+
+  .volume__bar {
+    width: 3rem;
+    max-height: 0.15rem;
+  }
+
+  .speed__options {
+    width: 100px;
+    bottom: 2.8rem;
+  }
+
+  .speed__option {
+    padding: 0.35rem 1rem;
+    font-size: 0.65rem;
+  }
+}
