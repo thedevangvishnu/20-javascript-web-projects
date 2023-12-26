@@ -54,10 +54,17 @@ h1 {
   box-shadow: 0px 0px 40px rgba(0, 0, 0, 0.75);
 }
 
+.controls__entry__div {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  min-height: 90px;
+}
+
 /* controlbar */
 .controlbar__container {
-  opacity: 1;
-  pointer-events: initial;
+  opacity: 0;
+  pointer-events: none;
   width: 100%;
   min-height: 60px;
   padding: 0 1rem;
@@ -188,14 +195,6 @@ i {
   color: #eee;
 }
 
-/* ............................................ */
-
-/* classes to use in js */
-.show-hide__container {
-  opacity: 1;
-  pointer-events: initial;
-}
-
 /* ................................................ */
 
 /* responsivess for smaller screen devices */
@@ -204,6 +203,10 @@ i {
   .player {
     max-width: 95vw;
     min-width: 0;
+  }
+
+  .controls__entry__div {
+    min-height: 70px;
   }
 
   .controlbar__container {
@@ -237,4 +240,13 @@ i {
     padding: 0.35rem 1rem;
     font-size: 0.65rem;
   }
+}
+
+/* ............................................ */
+
+/* functionality related styling */
+
+.controls__entry__div:hover .controlbar__container {
+  opacity: 1;
+  pointer-events: initial;
 }
