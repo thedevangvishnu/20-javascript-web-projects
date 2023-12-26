@@ -54,6 +54,120 @@ h1 {
   box-shadow: 0px 0px 40px rgba(0, 0, 0, 0.75);
 }
 
+/* controlbar */
+.controlbar__container {
+  width: 100%;
+  height: 12.5%;
+  padding: 0 1rem;
+  position: absolute;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.75);
+}
+
+.video__dragbar {
+  appearance: none;
+  width: 100%;
+  height: 0.25rem;
+  background-color: #888;
+  border: none;
+  outline: none;
+  cursor: pointer;
+}
+
+.other__controls__container {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+i {
+  font-size: 1.25rem;
+}
+
+.left__controls,
+.right__controls {
+  display: flex;
+  align-items: center;
+  height: 100%;
+  /* background-color: red; */
+}
+
+/* left controls */
+
+.left__controls {
+  gap: 0.5rem;
+}
+
+.play__pause__icon {
+  font-size: 1.5rem;
+}
+
+.volume__bar {
+  appearance: none;
+  width: 5rem;
+  height: 0.25rem;
+  background-color: #888;
+}
+
+.play__pause__icon,
+.volume__bar,
+.volume__icon {
+  cursor: pointer;
+}
+
+/* right controls */
+
+.right__controls {
+  gap: 0.75rem;
+}
+
+.current__speed,
+.progress__time {
+  font-size: 0.8rem;
+}
+
+.current__speed {
+  font-weight: bold;
+}
+
+.speed__container {
+  display: flex;
+  align-items: center;
+}
+
+.speed__options {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: rgba(0, 0, 0, 0.75);
+  width: 120px;
+  position: absolute;
+  bottom: 3.5rem;
+  right: 8.75rem;
+  /* display: none; */
+}
+
+.speed__option {
+  width: 100%;
+  text-align: center;
+  font-size: 0.75rem;
+  font-weight: 600;
+  padding: 0.5rem 1rem;
+  cursor: pointer;
+  background-color: transparent;
+  transition: all 0.3s;
+}
+
+.speed__option:hover {
+  background-color: rgba(0, 0, 0, 0.9);
+}
+
+.arrow__icon,
+.fullscreen__icon {
+  cursor: pointer;
+}
+
 /* attribution */
 
 .attribution {
