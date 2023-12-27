@@ -135,7 +135,7 @@ i {
 }
 
 .volume__bar {
-  width: 80%;
+  width: 20%;
   height: 0.35rem;
   background-color: #ddd;
   border: none;
