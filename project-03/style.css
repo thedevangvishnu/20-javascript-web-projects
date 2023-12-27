@@ -169,9 +169,20 @@ i {
 }
 
 .speed__container {
-  position: relative;
+  position: absolute;
   display: flex;
   align-items: center;
+  right: 9rem;
+  bottom: -0.2rem;
+}
+
+.video__speed {
+  display: flex;
+  align-items: center;
+  gap: 0.25rem;
+  transition: all 0.3s ease-in-out;
+  background-color: transparent;
+  padding: 0.15rem 0.5rem 0.15rem 1rem;
 }
 
 .speed__options {
@@ -181,7 +192,7 @@ i {
   background-color: rgba(0, 0, 0, 0.75);
   width: 120px;
   position: absolute;
-  bottom: 3.1rem;
+  bottom: 3.3rem;
   right: 0rem;
   /* display: none; */
 }
@@ -201,7 +212,17 @@ i {
   background-color: rgba(0, 0, 0, 0.9);
 }
 
-.arrow__icon,
+.progress__time {
+  position: relative;
+  padding-inline: 0.5rem;
+}
+
+.progress__time span {
+  position: relative;
+  padding: 0.15rem 0.25rem;
+}
+
+.video__speed,
 .fullscreen__icon {
   cursor: pointer;
 }
@@ -263,6 +284,10 @@ i {
     height: 0.15rem;
   }
 
+  .speed__container {
+    bottom: 0.075rem;
+  }
+
   .speed__options {
     width: 100px;
     bottom: 2.575rem;
@@ -278,8 +303,14 @@ i {
 
 /* functionality related styling */
 
+/*  show-hide controlbar depending upon hover to entry div */
 .controls__entry__div:hover .controlbar__container {
   opacity: 1;
   pointer-events: initial;
   transition: all 0.4s ease-in;
+}
+
+/* add background to video speed div only when it is clicked and is active*/
+.video__speed__active {
+  background-color: rgba(0, 0, 0, 0.9);
 }

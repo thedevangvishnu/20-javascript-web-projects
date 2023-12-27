@@ -25,6 +25,7 @@
           autoplay
           muted
           loop
+          id="video"
         ></video>
 
         <!-- show-hide controls -->
@@ -32,18 +33,18 @@
           <!-- control bar -->
           <div class="controlbar__container" id="controlbar-container">
             <!-- video time dragbar -->
-            <div class="video__dragbar__container">
-              <div type="range" class="video__dragbar"></div>
+            <div class="video__dragbar__container" id="video-dragbar-container">
+              <div type="range" class="video__dragbar" id="video-dragbar"></div>
             </div>
 
             <!-- other controls  -->
             <div class="other__controls__container">
               <!-- left controls -->
               <div class="left__controls">
-                <i class="ri-pause-fill play__pause__icon"></i>
+                <i class="ri-pause-fill play__pause__icon" id="play-pause"></i>
                 <i class="ri-volume-up-fill volume__icon"></i>
-                <div class="volume__bar__container">
-                  <div class="volume__bar"></div>
+                <div class="volume__bar__container" id="volume-bar-container">
+                  <div class="volume__bar" id="volume-bar"></div>
                 </div>
               </div>
 
@@ -51,8 +52,10 @@
               <div class="right__controls">
                 <!-- speed -->
                 <div class="speed__container">
-                  <p class="current__speed">1.0x</p>
-                  <i class="ri-arrow-down-s-fill arrow__icon"></i>
+                  <div class="video__speed" id="video-speed">
+                    <p class="current__speed">1.0x</p>
+                    <i class="ri-arrow-down-s-fill arrow__icon"></i>
+                  </div>
                   <div class="speed__options">
                     <p class="speed__option">0.5x</p>
                     <p class="speed__option">0.75x</p>
@@ -63,7 +66,10 @@
                 </div>
 
                 <div class="progress__time__container">
-                  <p class="progress__time">00.00/00.00</p>
+                  <p class="progress__time">
+                    <span id="current-time">00.00</span>/
+                    <span id="total-time">00.00</span>
+                  </p>
                 </div>
                 <i class="ri-fullscreen-fill fullscreen__icon"></i>
               </div>
