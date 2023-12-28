@@ -1,4 +1,5 @@
 // select all necessary elements
+const player = document.getElementById("player");
 const video = document.getElementById("video");
 const videoDragbarContainer = document.getElementById(
   "video-dragbar-container"
@@ -15,6 +16,7 @@ const speedBtn = document.getElementById("speed-container");
 const speedOptionsContainer = document.getElementById("speed-options");
 const allSpeedOptions = document.querySelectorAll(".speed__option");
 const currentSpeed = document.getElementById("current-speed");
+const fullScreenIcon = document.getElementById("fullscreen-icon");
 
 // show play icon
 const showPlayIcon = () => {
@@ -142,3 +144,57 @@ adjustPlaybackSpeed();
 video.addEventListener("ratechange", () => {
   console.log(video.playbackRate);
 });
+
+// Function to enter fullscreen
+function enterFullscreen(element) {
+  if (element.requestFullscreen) {
+    element.requestFullscreen();
+  } else if (element.mozRequestFullScreen) {
+    // Firefox
+    element.mozRequestFullScreen();
+  } else if (element.webkitRequestFullscreen) {
+    // Chrome, Safari, and Opera
+    element.webkitRequestFullscreen();
+  } else if (element.msRequestFullscreen) {
+    // IE/Edge
+    element.msRequestFullscreen();
+  }
+}
+
+// Function to exit fullscreen
+function exitFullscreen() {
+  if (document.exitFullscreen) {
+    document.exitFullscreen();
+  } else if (document.mozCancelFullScreen) {
+    // Firefox
+    document.mozCancelFullScreen();
+  } else if (document.webkitExitFullscreen) {
+    // Chrome, Safari and Opera
+    document.webkitExitFullscreen();
+  } else if (document.msExitFullscreen) {
+    // IE/Edge
+    document.msExitFullscreen();
+  }
+}
+
+let fullscreen = false;
+
+const toggleFullScreen = () => {
+  if (!fullscreen) {
+    enterFullscreen(player);
+    fullScreenIcon.classList.replace(
+      "ri-fullscreen-fill",
+      "ri-fullscreen-exit-fill"
+    );
+  } else {
+    exitFullscreen();
+    fullScreenIcon.classList.replace(
+      "ri-fullscreen-exit-fill",
+      "ri-fullscreen-fill"
+    );
+    console.log("done");
+  }
+  fullscreen = !fullscreen;
+};
+
+fullScreenIcon.addEventListener("click", toggleFullScreen);
