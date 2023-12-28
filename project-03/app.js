@@ -36,12 +36,6 @@ const togglePlayPause = () => {
   }
 };
 
-playPauseBtn.addEventListener("click", togglePlayPause);
-video.addEventListener("click", togglePlayPause);
-video.addEventListener("ended", showPlayIcon);
-
-// show play icon again when the video has ended
-
 // display time in desired output
 const displayTimeCorrectly = (time) => {
   let minutes = Math.floor(time / 60);
@@ -62,9 +56,6 @@ const updateVideoTime = () => {
   totalVideoTime.textContent = displayTimeCorrectly(video.duration);
 };
 
-video.addEventListener("timeupdate", updateVideoTime);
-video.addEventListener("canplay", updateVideoTime);
-
 // skip video to a specific point using the dragbar and update related time
 const progressVideo = (event) => {
   const newTime = event.offsetX / videoDragbarContainer.offsetWidth;
@@ -72,12 +63,18 @@ const progressVideo = (event) => {
   video.currentTime = newTime * video.duration;
 };
 
-videoDragbarContainer.addEventListener("click", progressVideo);
+// show volume mute icon
+const showMuteIcon = () => {
+  volumeBtn.classList.replace("ri-volume-up-fill", "ri-volume-mute-fill");
+};
 
-// toggle volume icons
+// show unmute icon
+const showUnmuteIcon = () => {
+  volumeBtn.classList.replace("ri-volume-mute-fill", "ri-volume-up-fill");
+};
 
-let lastVolume;
 // functionality to adjust volume
+let lastVolume;
 const adjustVolume = (event) => {
   let newVolume = event.offsetX / volumeBarContainer.offsetWidth;
 
@@ -89,15 +86,14 @@ const adjustVolume = (event) => {
   if (newVolume > 0.9) {
     newVolume = 1;
   }
-  console.log(newVolume);
 
   volumeBar.style.width = `${newVolume * 100}%`;
   video.volume = newVolume;
 
   if (newVolume === 0) {
-    volumeBtn.classList.replace("ri-volume-up-fill", "ri-volume-mute-fill");
+    showMuteIcon();
   } else {
-    volumeBtn.classList.replace("ri-volume-mute-fill", "ri-volume-up-fill");
+    showUnmuteIcon();
   }
 
   lastVolume = newVolume;
@@ -107,25 +103,20 @@ const adjustVolume = (event) => {
 const toggleVolumeIcons = () => {
   if (video.volume) {
     lastVolume = video.volume;
-    volumeBtn.classList.replace("ri-volume-up-fill", "ri-volume-mute-fill");
+    showMuteIcon();
     volumeBar.style.width = 0;
     video.volume = 0;
   } else {
     video.volume = lastVolume;
-    volumeBtn.classList.replace("ri-volume-mute-fill", "ri-volume-up-fill");
+    showUnmuteIcon();
     volumeBar.style.width = `${lastVolume * 100}%`;
   }
 };
-
-volumeBarContainer.addEventListener("click", adjustVolume);
-volumeBtn.addEventListener("click", toggleVolumeIcons);
 
 // show-hide speed options
 const toggleSpeedOptions = () => {
   speedOptionsContainer.classList.toggle("toggle__speed__options");
 };
-
-speedBtn.addEventListener("click", toggleSpeedOptions);
 
 // adjust playback speed based on the speed selected from speed-options
 
@@ -138,12 +129,6 @@ const adjustPlaybackSpeed = (event) => {
     });
   });
 };
-
-adjustPlaybackSpeed();
-
-video.addEventListener("ratechange", () => {
-  console.log(video.playbackRate);
-});
 
 // Function to enter fullscreen
 function enterFullscreen(element) {
@@ -180,21 +165,19 @@ function exitFullscreen() {
 let fullscreen = false;
 
 const toggleFullScreen = () => {
-  if (!fullscreen) {
-    enterFullscreen(player);
-    fullScreenIcon.classList.replace(
-      "ri-fullscreen-fill",
-      "ri-fullscreen-exit-fill"
-    );
-  } else {
-    exitFullscreen();
-    fullScreenIcon.classList.replace(
-      "ri-fullscreen-exit-fill",
-      "ri-fullscreen-fill"
-    );
-    console.log("done");
-  }
+  !fullscreen ? enterFullscreen(player) : exitFullscreen();
   fullscreen = !fullscreen;
 };
 
+// handle all events
+playPauseBtn.addEventListener("click", togglePlayPause);
+video.addEventListener("click", togglePlayPause);
+video.addEventListener("ended", showPlayIcon);
+video.addEventListener("timeupdate", updateVideoTime);
+video.addEventListener("canplay", updateVideoTime);
+videoDragbarContainer.addEventListener("click", progressVideo);
+volumeBarContainer.addEventListener("click", adjustVolume);
+volumeBtn.addEventListener("click", toggleVolumeIcons);
+speedBtn.addEventListener("click", toggleSpeedOptions);
+speedBtn.addEventListener("click", adjustPlaybackSpeed);
 fullScreenIcon.addEventListener("click", toggleFullScreen);
