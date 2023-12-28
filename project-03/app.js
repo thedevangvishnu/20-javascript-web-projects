@@ -9,9 +9,12 @@ const volumeBtn = document.getElementById("volume-icon");
 const volumeBarContainer = document.getElementById("volume-bar-container");
 const volumeBar = document.getElementById("volume-bar");
 const videoSpeed = document.getElementById("video-speed");
-
 const currentVideoTime = document.getElementById("current-time");
 const totalVideoTime = document.getElementById("total-time");
+const speedBtn = document.getElementById("speed-container");
+const speedOptionsContainer = document.getElementById("speed-options");
+const allSpeedOptions = document.querySelectorAll(".speed__option");
+const currentSpeed = document.getElementById("current-speed");
 
 // show play icon
 const showPlayIcon = () => {
@@ -71,6 +74,7 @@ videoDragbarContainer.addEventListener("click", progressVideo);
 
 // toggle volume icons
 
+let lastVolume;
 // functionality to adjust volume
 const adjustVolume = (event) => {
   let newVolume = event.offsetX / volumeBarContainer.offsetWidth;
@@ -93,6 +97,48 @@ const adjustVolume = (event) => {
   } else {
     volumeBtn.classList.replace("ri-volume-mute-fill", "ri-volume-up-fill");
   }
+
+  lastVolume = newVolume;
+};
+
+// mute/unmute volume using volume icons
+const toggleVolumeIcons = () => {
+  if (video.volume) {
+    lastVolume = video.volume;
+    volumeBtn.classList.replace("ri-volume-up-fill", "ri-volume-mute-fill");
+    volumeBar.style.width = 0;
+    video.volume = 0;
+  } else {
+    video.volume = lastVolume;
+    volumeBtn.classList.replace("ri-volume-mute-fill", "ri-volume-up-fill");
+    volumeBar.style.width = `${lastVolume * 100}%`;
+  }
 };
 
 volumeBarContainer.addEventListener("click", adjustVolume);
+volumeBtn.addEventListener("click", toggleVolumeIcons);
+
+// show-hide speed options
+const toggleSpeedOptions = () => {
+  speedOptionsContainer.classList.toggle("toggle__speed__options");
+};
+
+speedBtn.addEventListener("click", toggleSpeedOptions);
+
+// adjust playback speed based on the speed selected from speed-options
+
+const adjustPlaybackSpeed = (event) => {
+  allSpeedOptions.forEach((speedOption) => {
+    speedOption.addEventListener("click", (event) => {
+      const selectedSpeed = parseFloat(speedOption.textContent).toFixed(1);
+      video.playbackRate = selectedSpeed;
+      currentSpeed.textContent = `${selectedSpeed}x`;
+    });
+  });
+};
+
+adjustPlaybackSpeed();
+
+video.addEventListener("ratechange", () => {
+  console.log(video.playbackRate);
+});

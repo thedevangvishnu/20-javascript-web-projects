@@ -135,7 +135,7 @@ i {
 }
 
 .volume__bar {
-  width: 20%;
+  width: 100%;
   height: 0.35rem;
   background-color: #ddd;
   border: none;
@@ -194,7 +194,9 @@ i {
   position: absolute;
   bottom: 3.3rem;
   right: 0rem;
-  /* display: none; */
+  opacity: 0;
+  pointer-events: none;
+  transition: all 0.3s ease-out;
 }
 
 .speed__option {
@@ -280,7 +282,7 @@ i {
   }
 
   .volume__bar {
-    width: 80%;
+    width: 100%;
     height: 0.15rem;
   }
 
@@ -313,4 +315,10 @@ i {
 /* add background to video speed div only when it is clicked and is active*/
 .video__speed__active {
   background-color: rgba(0, 0, 0, 0.9);
+}
+
+.toggle__speed__options {
+  opacity: 1;
+  pointer-events: initial;
+  transition: all 0.3s ease-in;
 }
