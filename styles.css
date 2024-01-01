@@ -175,6 +175,7 @@ nav .container {
   justify-content: space-evenly;
   gap: 6rem;
   margin-top: 1rem;
+  flex-wrap: wrap;
 }
 
 .project__item {
@@ -183,9 +184,8 @@ nav .container {
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  min-width: 300px;
   width: 400px;
-  height: 100%;
+  height: 420px;
   padding: 1rem;
   background-color: #fff;
   box-shadow: 4px 4px 24px rgba(0, 0, 0, 0.2);
@@ -262,6 +262,7 @@ nav .container {
     justify-content: center;
     padding-inline: 2rem;
     gap: 4rem;
+    flex-wrap: wrap;
   }
 
   .projects__section h2 {
@@ -274,7 +275,7 @@ nav .container {
   }
 
   .project__item {
-    width: 100%;
+    width: 40%;
     padding: 2rem;
   }
 
